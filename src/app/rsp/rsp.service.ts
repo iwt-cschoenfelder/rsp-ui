@@ -20,7 +20,7 @@ export class RspService {
     const baseUrl = 'http://localhost:8080'
 
     let rspRequest: RspRequest =  { userChoice: userChoice }
-    return this.httpClient.post<RspResult>(baseUrl + 'rsp', rspRequest, httpOptions)
+    return this.httpClient.post<RspResult>(baseUrl + '/rsp', rspRequest, httpOptions)
       .pipe(
         catchError(this.handleError)
       )
