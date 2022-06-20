@@ -1,0 +1,16 @@
+<div id="rsp">
+  <ng-container *ngIf="!rspResult">
+    <h3>please make your selection</h3>
+    <button (click)="submitRock()">ROCK</button>
+    <button (click)="submitScissor()">SCISSOR</button>
+    <button (click)="submitPaper()">PAPER</button>
+  </ng-container>
+  <ng-container *ngIf="rspResult">
+    <h3>{{ computeResultHeadline() }}</h3>
+      <ul>
+        <li>Your choice was {{ rspResult.userChoice }}</li>
+        <li>Computer's choice was {{ rspResult.computerChoice }}</li>
+      </ul>
+    <button (click)="resetSubmit()">TRY ANOTHER ROUND</button>
+  </ng-container>
+</div>
