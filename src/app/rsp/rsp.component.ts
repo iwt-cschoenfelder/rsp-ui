@@ -39,6 +39,10 @@ export class RspComponent {
     this.submitChoice(Choice.PAPER)
   }
 
+  public submitWell() {
+    this.submitChoice(Choice.WELL)
+  }
+
   private submitChoice(userChoice: Choice) {
     this.rspService.submitChoice(userChoice).subscribe(
       result => this.rspResult = result
