@@ -4,6 +4,7 @@ import {Choice} from '../enum/Choice';
 import {RspResult} from '../type/RspResult';
 import {GameResult} from '../enum/GameResult';
 
+
 @Component({
   selector: 'rock-scissor-paper',
   templateUrl: './rsp.component.html',
@@ -14,6 +15,10 @@ export class RspComponent {
   constructor(private rspService: RspService) {}
 
   public rspResult: RspResult | undefined;
+
+  public get Choice() {
+    return Choice;
+  }
 
   public computeResultHeadline() {
     switch (this.rspResult?.userGameResult) {
@@ -28,22 +33,7 @@ export class RspComponent {
     this.rspResult = undefined;
   }
 
-  public submitRock() {
-    this.submitChoice(Choice.ROCK)
-  }
-
-  public submitScissor() {
-    this.submitChoice(Choice.SCISSOR)
-  }
-  public submitPaper() {
-    this.submitChoice(Choice.PAPER)
-  }
-
-  public submitWell() {
-    this.submitChoice(Choice.WELL)
-  }
-
-  private submitChoice(userChoice: Choice) {
+  public submitChoice(userChoice: Choice) {
     this.rspService.submitChoice(userChoice).subscribe(
       result => this.rspResult = result
     )

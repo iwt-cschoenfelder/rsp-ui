@@ -1,10 +1,12 @@
+enum Chouce
+
 <div id="rsp">
   <ng-container *ngIf="!rspResult">
     <h3>please make your selection</h3>
-    <button (click)="submitRock()">ROCK</button>
-    <button (click)="submitScissor()">SCISSOR</button>
-    <button (click)="submitPaper()">PAPER</button>
-    <button (click)="submitWell()">WELL</button>
+    <button (click)="submitChoice(Choice.ROCK)">ROCK</button>
+    <button (click)="submitChoice(Choice.SCISSOR)">SCISSOR</button>
+    <button (click)="submitChoice(Choice.PAPER)">PAPER</button>
+    <button (click)="submitChoice(Choice.WELL)">WELL</button>
   </ng-container>
   <ng-container *ngIf="rspResult">
     <h3>{{ computeResultHeadline() }}</h3>
